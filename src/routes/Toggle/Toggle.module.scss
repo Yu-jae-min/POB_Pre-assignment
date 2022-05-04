@@ -1,0 +1,61 @@
+@mixin btnBgPosition {
+  position: absolute;
+  top: 5%;
+  left: 1%;
+  width: 49%;
+  height: 90%;
+  background-color: #fff;
+  border-radius: 25px;
+  transition: all 0.3s ease-in;
+  z-index: -1;
+}
+
+@mixin btnTextActive {
+  width: 50%;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: transparent;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.Toggle {
+  padding: 50px;
+  border-bottom: 1px solid #ddd;
+
+  .title {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #111;
+  }
+
+  .container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 300px;
+    height: 36px;
+    background-color: #ddd;
+    border-radius: 18px;
+    z-index: 0;
+
+    .btnBgDefault {
+      @include btnBgPosition;
+    }
+
+    .btnBgDetail {
+      @include btnBgPosition;
+      transform: translateX(100%);
+    }
+
+    .actionBtnDefault {
+      @include btnTextActive;
+      color: #aaa;
+    }
+
+    .actionBtnDetail {
+      @include btnTextActive;
+      color: #111;
+    }
+  }
+}

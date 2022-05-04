@@ -1,0 +1,49 @@
+@mixin vegetableBtn {
+  width: 100px;
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.Tab {
+  padding: 50px;
+  border-bottom: 1px solid #ddd;
+
+  .title {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #111;
+  }
+
+  .container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 300px;
+    height: 36px;
+
+    .btnActive {
+      @include vegetableBtn;
+      color: #111;
+    }
+
+    .btnUnActive {
+      @include vegetableBtn;
+      color: #aaa;
+    }
+  }
+
+  .sliderLineWrap {
+    width: 300px;
+    height: 2px;
+    background-color: #ddd;
+
+    .sliderLine {
+      width: 100px;
+      height: 100%;
+      background-color: #49b0ae;
+      transition: all 0.3s ease-in;
+    }
+  }
+}

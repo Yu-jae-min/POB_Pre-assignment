@@ -1,0 +1,139 @@
+.Slider {
+  padding: 50px;
+  border-bottom: 1px solid #ddd;
+
+  .title {
+    margin-bottom: 20px;
+    color: #111;
+    font-size: 18px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+
+    .percentWrap {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      width: 100%;
+      height: 50px;
+      padding: 0 20px;
+      background-color: #f2f2f2;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+
+      .percent {
+        margin-right: 15px;
+        color: #111;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .sign {
+        color: #aaa;
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+
+    .rangeWrap {
+      display: flex;
+      align-items: center;
+      position: relative;
+      margin: 15px 0;
+
+      .inputWrap {
+        display: flex;
+        position: relative;
+        width: 100%;
+
+        .rangeBar {
+          -webkit-appearance: none;
+          width: 100%;
+          background: transparent;
+          border-radius: 2px;
+
+          &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #49b0ae;
+            border: 3px solid #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+            z-index: 999;
+          }
+        }
+
+        .progressBarUpper {
+          width: 100%;
+          height: 4px;
+          background: #49b0ae;
+          position: absolute;
+          top: 50%;
+          margin-top: -2px;
+          z-index: -1;
+          overflow: hidden;
+
+          .progressBarLow {
+            width: 100%;
+            height: 100%;
+            background: #ddd;
+            position: absolute;
+          }
+        }
+      }
+
+      .dotBranchs {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+
+        .dotBranch {
+          width: 14px;
+          height: 14px;
+          border-radius: 7px;
+        }
+      }
+    }
+
+    .percentLabels {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+
+      .percentLabel {
+        width: 36px;
+        height: 18px;
+        color: #aaa;
+        background-color: #eee;
+        font-size: 10px;
+        font-weight: bold;
+        border-radius: 9px;
+        line-height: 18px;
+        text-align: center;
+        cursor: pointer;
+
+        &:hover {
+          color: #fff;
+          background-color: #49b0ae;
+        }
+      }
+
+      .percentLabel:nth-child(2) {
+        margin-right: 14px;
+      }
+
+      .percentLabel:nth-child(4) {
+        margin-left: 14px;
+      }
+    }
+  }
+}
