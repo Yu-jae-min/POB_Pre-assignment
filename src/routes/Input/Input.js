@@ -1,30 +1,29 @@
-import { useState } from "react"
-import styles from "./Input.module.scss"
+import { useState } from 'react'
+import styles from './Input.module.scss'
 
-export default function Input(){
-  const [btnActive, setBtnActive] = useState(false);
-  const [inputValue, setInputValue] = useState({ mail: "", pw: "" })
+export default function Input() {
+  const [btnActive, setBtnActive] = useState(false)
+  const [inputValue, setInputValue] = useState({ mail: '', pw: '' })
   const [invalidShow, setInvalidShow] = useState(false)
 
-  const { mail, pw } = inputValue;
-  const emailRegex =
-    /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/
+  const { mail, pw } = inputValue
+  const emailRegex = /^([0-9a-zA-Z_.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/
   const emailChecking = emailRegex.test(inputValue.mail)
 
   const pwShowHandler = () => {
     setBtnActive(!btnActive)
-  };
+  }
 
   const invalidShowHandler = () => {
     if (mail.length && !emailChecking) setInvalidShow(true)
-  };
+  }
 
   const invalidHideHandler = () => {
     if (emailChecking) setInvalidShow(false)
-  };
+  }
 
   const addInputValues = (event) => {
-    const { name, value } = event.target;
+    const { name, value } = event.target
     const nextInput = { ...inputValue, [name]: value }
     setInputValue(nextInput)
 
@@ -37,20 +36,14 @@ export default function Input(){
       <div className={styles.container}>
         <p className={styles.inputTitle}>E-mail</p>
         <div className={styles.inputWrap}>
-          <input
-            name="mail"
-            valus={mail}
-            type="text"
-            placeholder="E-mail"
-            onChange={addInputValues}
-          />
+          <input name='mail' valus={mail} type='text' placeholder='E-mail' onChange={addInputValues} />
           <div
             className={styles.inputIcon}
-            name="checkBtn"
+            name='checkBtn'
             style={{
               background: emailChecking
-                ? "center / contain no-repeat url(/images/email_check_on.png)"
-                : "center / contain no-repeat url(/images/email_check_off.png)",
+                ? 'center / contain no-repeat url(/assets/images/email_check_on.png)'
+                : 'center / contain no-repeat url(../../assets/images/email_check_off.png)',
             }}
           />
         </div>
@@ -60,26 +53,28 @@ export default function Input(){
         <p className={styles.inputTitle}>Password</p>
         <div className={styles.inputWrap}>
           <input
-            name="pw"
+            name='pw'
             value={pw}
-            type={btnActive ? "text" : "password"}
-            placeholder="Password"
+            type={btnActive ? 'text' : 'password'}
+            placeholder='Password'
             onChange={addInputValues}
             onFocus={invalidShowHandler}
           />
           <button
             type='button'
             className={`${styles.inputIcon} ${styles.inputEyeIcon}`}
-            name="eyeBtn"
+            name='eyeBtn'
             style={{
-              cursor: pw.length ? "pointer" : "default",
+              cursor: pw.length ? 'pointer' : 'default',
               background: btnActive
-                ? "center / contain no-repeat url(/images/pw_show.png)"
-                : "center / contain no-repeat url(/images/pw_hide.png)",
+                ? 'center / contain no-repeat url(/images/pw_show.png)'
+                : 'center / contain no-repeat url(/images/pw_hide.png)',
             }}
             onClick={pwShowHandler}
             disabled={!pw.length}
-          >버튼</button>
+          >
+            <img src='../src/assets/images/email_check_off.png' alt='' />
+          </button>
         </div>
       </div>
     </div>

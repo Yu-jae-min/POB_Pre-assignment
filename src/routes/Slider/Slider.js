@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react'
 import styles from './Slider.module.scss'
 
 const RANGE_BRANCH = [
@@ -7,22 +7,22 @@ const RANGE_BRANCH = [
   { id: 3, percent: 50 },
   { id: 4, percent: 75 },
   { id: 5, percent: 100 },
-];
+]
 
-export default function Slider(){
+export default function Slider() {
   const [value, setValue] = useState(1)
-  const [dotActive, setDotActive] = useState("")
+  const [dotActive, setDotActive] = useState('')
 
   const percentValueHandler = (event) => {
     setValue(event.target.value)
-  };
+  }
 
   const percentBranchMoving = (percent) => {
     setValue(percent)
-  };
+  }
 
   useEffect(() => {
-    const percentChecking = RANGE_BRANCH.map((el) => el.percent <= value);
+    const percentChecking = RANGE_BRANCH.map((el) => el.percent <= value)
     setDotActive(percentChecking)
   }, [value])
 
@@ -38,10 +38,10 @@ export default function Slider(){
           <div className={styles.inputWrap}>
             <input
               className={styles.rangeBar}
-              type="range"
-              name="rangeInput"
-              min="1"
-              max="100"
+              type='range'
+              name='rangeInput'
+              min='1'
+              max='100'
               value={value}
               onChange={(event) => percentValueHandler(event)}
             />
@@ -55,7 +55,7 @@ export default function Slider(){
                 className={styles.dotBranch}
                 key={el.id}
                 style={{
-                  background: dotActive[el.id - 1] ? "#49b0ae" : "#ddd",
+                  background: dotActive[el.id - 1] ? '#49b0ae' : '#ddd',
                 }}
               />
             ))}
@@ -72,5 +72,5 @@ export default function Slider(){
         </ul>
       </div>
     </div>
-  );
-};
+  )
+}

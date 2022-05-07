@@ -1,11 +1,11 @@
-import { useState } from "react"
-import styles from "./Toggle.module.scss"
+import { useState } from 'react'
+import styles from './Toggle.module.scss'
 
-export default function Toggle(){
+export default function Toggle() {
   const [btnActive, setbtnActive] = useState(true)
 
   const btnHandler = (event) => {
-    setbtnActive(event.target.innerHTML === "기본")
+    setbtnActive(event.target.innerHTML === '기본')
   }
 
   return (

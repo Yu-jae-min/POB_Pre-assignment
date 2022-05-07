@@ -1,14 +1,14 @@
-import { useState } from "react"
-import styles from "./Tab.module.scss"
+import { useState } from 'react'
+import styles from './Tab.module.scss'
 
 const VEGETABLE_LIST = [
-  { id: 1, name: "감자" },
-  { id: 2, name: "고구마" },
-  { id: 3, name: "카레라이스" },
-];
+  { id: 1, name: '감자' },
+  { id: 2, name: '고구마' },
+  { id: 3, name: '카레라이스' },
+]
 
-export default function Tab(){
-  const [btnActive, setBtnActive] = useState([true, false, false]);
+export default function Tab() {
+  const [btnActive, setBtnActive] = useState([true, false, false])
 
   const vegetableNameHandler = (id) => {
     const activeCheck = btnActive.map((el, index) => {
@@ -42,5 +42,5 @@ export default function Tab(){
         />
       </div>
     </section>
-  );
-};
+  )
+}
